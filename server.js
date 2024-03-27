@@ -17,15 +17,15 @@ if (!settings?.server?.port) {
     process.exit(1);
 }
 
-const settingsPort = settings.port;
+const settingsServerPort = settings.server.port;
 
-// require('./routes/index.js')(app);
+require('./app/routes/index.js')(app);
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.listen(settingsPort, () => {
-    console.log('Server running on port 3001');
+app.listen(settingsServerPort, () => {
+    console.log(`Server running on port ${settingsServerPort}`);
 
     // Stating mongo  
     mongoDB();

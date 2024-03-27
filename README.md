@@ -19,4 +19,6 @@ module.exports = {
 };
 ```
 
-2° rodar o comando: node server.js
+2° npm i
+
+3° rodar o comando: node server.js

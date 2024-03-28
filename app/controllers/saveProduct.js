@@ -6,7 +6,7 @@ async function saveProduct(req, res, next) {
     const objReturn = {
         data: null,
         error: null,
-        resStatus: null,
+        status: null,
     }
 
     if (!req.body) {
@@ -28,7 +28,7 @@ async function saveProduct(req, res, next) {
     if (!name || (typeof name != 'string')) {
         console.log("controllers/saveProduct - missing name or wrong format");
         objReturn.error = "missing name or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -36,7 +36,7 @@ async function saveProduct(req, res, next) {
     if (!description || (typeof description != 'string')) {
         console.log("controllers/saveProduct - missing description or wrong format");
         objReturn.error = "missing description or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -44,7 +44,7 @@ async function saveProduct(req, res, next) {
     if (!price || (typeof price != 'number')) {
         console.log("controllers/saveProduct - missing price or wrong format");
         objReturn.error = "missing price or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -52,7 +52,7 @@ async function saveProduct(req, res, next) {
     if (!company || (typeof company != 'string')) {
         console.log("controllers/saveProduct - missing company or wrong format");
         objReturn.error = "missing company or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -60,7 +60,7 @@ async function saveProduct(req, res, next) {
     if (!amount || (typeof amount != 'number')) {
         console.log("controllers/saveProduct - missing amount or wrong format");
         objReturn.error = "missing amount or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -68,7 +68,7 @@ async function saveProduct(req, res, next) {
     if (!brand || (typeof brand != 'string')) {
         console.log("controllers/saveProduct - missing brand or wrong format");
         objReturn.error = "missing brand or wrong format";
-        objReturn.resStatus = 400;
+        objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
     }
@@ -84,12 +84,12 @@ async function saveProduct(req, res, next) {
         const createProductResult = await productModel.create(productObj);
 
         objReturn.data = createProductResult;
-        objReturn.resStatus = 201;
+        objReturn.status = 201;
 
     } catch (err) {
         console.log("controllers/saveProduct - Error to create product mongo document - ERROR: ", err);
         objReturn.error = err;
-        objReturn.resStatus = 500;
+        objReturn.status = 500;
     }
     finally {
         controllerReturn(objReturn, res);
@@ -97,9 +97,9 @@ async function saveProduct(req, res, next) {
 };
 
 function controllerReturn(objReturn, res) {
-    const { resStatus } = objReturn;
+    const { status } = objReturn;
 
-    res.status(resStatus).send(objReturn);
+    res.status(status).send(objReturn);
 }
 
 exports.saveProduct = saveProduct;

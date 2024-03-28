@@ -19,6 +19,10 @@ module.exports = {
 };
 ```
 
-2° npm i
+2° rodar o comando: npm i
 
-3° rodar o comando: node server.js
+3° baixar o mongo db:
+
+    link pra download do mongo: https://www.mongodb.com/try/download/community 
+
+4° rodar o comando: node server.js

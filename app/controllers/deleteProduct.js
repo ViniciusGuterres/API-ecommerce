@@ -9,11 +9,11 @@ async function deleteProduct(req, res, next) {
         status: null,
     };
 
-    const productName = req.params.productName;
+    const {id} = req.params;
 
-    if (!productName) {
-        console.log("controllers/deleteProduct - missing productName");
-        objReturn.error = "missing productName";
+    if (!id) {
+        console.log("controllers/deleteProduct - missing id");
+        objReturn.error = "missing id";
         objReturn.status = 400;
         controllerReturn(objReturn, res);
         return;
@@ -21,7 +21,7 @@ async function deleteProduct(req, res, next) {
 
     try {
         // Encontra e exclui o produto com base no nome
-        const deletedProduct = await productModel.findOneAndDelete({ name: productName });
+        const deletedProduct = await productModel.findOneAndDelete({ code: id });
 
         if (!deletedProduct) {
             objReturn.error = "Produto não encontrado";

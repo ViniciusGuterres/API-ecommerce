@@ -10,7 +10,7 @@ module.exports = (app) => {
     app.post('/saveProduct', bodyParser.json(), saveProductController);
     app.get('/getProducts', bodyParser.json(), getProductController);
     app.get('/getProduct/:productName', bodyParser.json(), getProductController);
-    app.delete('/deleteProduct/:productName', bodyParser.json(), deleteProductController);
+    app.delete('/deleteProduct/:id', bodyParser.json(), deleteProductController);
     app.put('/updateProduct/:id', bodyParser.json(), updateProductController);
     app.get('/getProductByName', getProductByNameController);
 }

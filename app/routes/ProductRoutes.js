@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const saveProductController = require('../controllers/saveProduct.js').saveProduct;
 const getProductController = require('../controllers/getProducts.js').getProducts;
 const deleteProductController = require('../controllers/deleteProduct.js').deleteProduct; 
-const updateProductController = require('../controllers/updateProject.js').updateProject;
+const updateProductController = require('../controllers/updateProduct.js').updateProduct;
 const getProductByNameController = require('../controllers/getProductByName.js').getProductByName;
 
 module.exports = (app) => {

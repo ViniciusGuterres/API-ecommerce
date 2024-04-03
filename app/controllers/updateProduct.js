@@ -1,7 +1,7 @@
 // Requires model
 const productModel = require('../models/product.js');
 
-async function updateProject(req, res, next) {
+async function updateProduct(req, res, next) {
     // Globals
     const objReturn = {
         data: null,
@@ -111,4 +111,4 @@ function controllerReturn(objReturn, res) {
     res.status(status).send(objReturn);
 }
 
-exports.updateProject = updateProject;
+exports.updateProduct = updateProduct;

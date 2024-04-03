@@ -9,15 +9,6 @@ async function getProducts(req, res, next) {
         status: null,
     };
 
-    // let productCodeParam = req?.params || null;
-    // try {
-    //     productCodeParam = JSON.parse(productCodeParam);
-    // } catch (err) {
-    //     console.log("controllers/getProducts - Error to parse productCodeParam JSON: ", err);
-    //     objReturn.error = err;
-    //     objReturn.status = 500;
-    // }
-
     /**
      * @function controllers/getProducts/getProductByCode
      * @summary - Will get all mongo products

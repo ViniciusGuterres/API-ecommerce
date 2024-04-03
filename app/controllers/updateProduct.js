@@ -25,7 +25,7 @@ async function updateProduct(req, res, next) {
     }
 
     if (!req.body) {
-        console.log("controllers/updateProject - missing req.body");
+        console.log("controllers/updateProduct - missing req.body");
         objReturn.error = "missing req.body";
         controllerReturn(objReturn, res);
         return;

@@ -78,8 +78,8 @@ async function saveProduct(req, res, next) {
         const productObj = req.body;
 
         // Getting the new product id
-        const maxMongoProductID = await productModel.findOne({}).sort({ code: -1 });
-        productObj.code = maxMongoProductID == null ? 1 : maxMongoProductID.code + 1;
+        const maxMongoProductID = await productModel.findOne({}).sort({ code: -1 });        
+        productObj.code = maxMongoProductID.code == null ? 1 : maxMongoProductID.code + 1;
 
         const createProductResult = await productModel.create(productObj);
 
